@@ -1,0 +1,260 @@
+* {
+  font-family: "Jetbrains Mono Nerd Font";
+  font-weight: bold;
+  font-size: 15px;
+}
+
+window#waybar {
+  /* background: rgba(22, 22, 30, 0.9); */
+  /*  border-radius: 15px; */
+  /*  border: 2px solid #124323; */
+  /* border: 0px solid #a1bdce; */
+  background: transparent;
+  border: 2px solid #2ac3de;
+  border-radius: 6px;
+  color: #d5d6db;
+}
+
+#custom-notification {
+  font-family: "Jetbrains Mono Nerd Font";
+  font-size: 18px;
+  margin-left: -2px;
+  padding-bottom: 12px;
+}
+
+tooltip {
+  background: #16161e;
+  font-size: 13px;
+  border-radius: 7px;
+  border: 2px solid #2ac3de;
+}
+
+#workspaces {
+  font-weight: normal;
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 9px;
+  transition: 0.2s ease;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-top: 1px;
+  margin-left: -3px;
+}
+
+#workspaces button {
+  color: #d5d6db;
+  font-weight: normal;
+  background: rgba(23, 23, 23, 0);
+  box-shadow: none;
+  text-shadow: none;
+  border-radius: 9px;
+  transition: 0.2s ease;
+  padding-left: 0px;
+  padding-right: 4px;
+  margin-right: -4px;
+  margin-top: -10px;
+  border: 0px;
+  /*   animation: ws_normal 20s ease-in-out 1; */
+}
+
+#workspaces button.active {
+  color: #d5d6db;
+  /* background-image: url("/home/anik/documents/bar1.png");*/
+  font-weight: normal;
+  transition: all 0.3s ease;
+  padding-left: 0px;
+  padding-right: 4px;
+  /*  transition: all 0.4s cubic-bezier(.55,0.68,.48,1.682); */
+}
+
+#workspaces button:hover {
+  color: #2ac3de;
+  background: none;
+  font-weight: normal;
+  animation: ws_hover 20s ease-in-out 1;
+  transition: all 0.5s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray menu * {
+  min-height: 16px;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+#tray menu separator {
+  min-height: 10px;
+}
+
+#custom-spacer {
+  opacity: 0;
+  padding-top: 3px;
+}
+
+#backlight {
+  background: rgba(23, 23, 23, 0);
+  font-weight: normal;
+  font-size: 19px;
+  margin: 0px 0px 0px -6px;
+}
+#bluetooth,
+#custom-cliphist {
+  background: #161320;
+  opacity: 1;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#battery {
+  font-weight: normal;
+  font-size: 22px;
+  background: rgba(23, 23, 23, 0);
+  opacity: 1;
+  margin: 0px 0px 0px 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #a6e3a1;
+}
+
+#battery.critical:not(.charging) {
+  color: #f38ba8;
+}
+
+#idle_inhibitor {
+  opacity: 1;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+#clock {
+  font-size: 15px;
+  font-weight: 900;
+  background: rgba(30, 30, 46, 0);
+  opacity: 1;
+  margin: 3px -13px -3px -13px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 3px;
+  border: none;
+}
+#pulseaudio {
+  font-weight: normal;
+  font-size: 18px;
+  background: rgba(30, 30, 46, 0);
+  opacity: 1;
+  margin-left: -3px;
+}
+
+#mpris {
+  animation: repeat;
+  animation-name: blink;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    color: #262827;
+  }
+}
+#network {
+  font-weight: normal;
+  font-size: 19px;
+  margin-left: -2px;
+}
+#custom-notifications,
+#custom-spotify,
+#custom-theme,
+#custom-menu {
+  background: rgba(30, 30, 46, 0);
+  margin: 0px 0px 0px 0px;
+  padding-left: 1px;
+  padding-right: 1px;
+  opacity: 0.1;
+}
+#tray {
+  padding: 0px;
+}
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#window {
+  font-family: "caskaydiacove nerd font mono";
+  padding-left: 5px;
+}
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#cava,
+#custom-box,
+#upower#headset,
+#upower {
+  /*margin: 8px 3px 3px 8px;*/
+  margin: 8px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+#mpris {
+  font-size: 16px;
+  font-weight: normal;
+  background: rgba(23, 23, 23, 0.5);
+  padding-top: 6px;
+  padding-bottom: 6px;
+  margin: 7px;
+  border-radius: 7px;
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+  background-color: transparent;
+  box-shadow: none;
+  border: 0px;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+  min-width: 9px;
+  min-height: 90px;
+  margin-bottom: -4px;
+  border-radius: 8px;
+  margin-left: -4px;
+  margin-right: -4px;
+  background-color: #313244;
+  border: 0px;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+  border-radius: 8px;
+  border: 0px;
+  background-color: #f2cdcd;
+}
+
+#privacy {
+  margin-left: 7px;
+}
+
+/* style for launchers */
+
+#custom-expand {
+  min-width: 25px;
+  font-size: 16px;
+}
+
+#group-minimized {
+  border-left: solid;
+  border-left-width: 1px;
+}
+
+#group-privacy {
+  margin-left: 7px;
+}

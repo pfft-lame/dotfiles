@@ -1,0 +1,19 @@
+background = #16161E
+background-opacity = 0.9
+theme = "tokyonight"
+macos-titlebar-style = hidden
+background-blur = true
+
+font-size = 16
+font-family = JetBrainsMonoNL Nerd Font Mon
+
+keybind = ctrl+shift+r=reload_config
+
+window-padding-balance = true
+window-padding-y = 0
+
+app-notifications = false
+resize-overlay = never
+confirm-close-surface = false
+
+# keybind = ctrl+shift+v=paste_from_clipboard

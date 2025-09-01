@@ -1,0 +1,85 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "cssPriority": "user",
+  "notification-inline-replies": true,
+  "notification-2fa-action": true,
+
+  "control-center-width": 330,
+  "control-center-height": 650,
+  "control-center-margin-top": 2,
+  "control-center-margin-bottom": 2,
+  "control-center-margin-right": 1,
+  "control-center-margin-left": 0,
+
+  "notification-window-width": 400,
+  "notification-icon-size": 48,
+  "notification-body-image-height": 160,
+  "notification-body-image-width": 200,
+
+  "timeout": 5,
+  "timeout-low": 4,
+  "timeout-critical": 10,
+
+  "fit-to-screen": false,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 200,
+  "hide-on-clear": false,
+  "hide-on-action": false,
+  "script-fail-notify": true,
+  "scripts": {
+    "example-script": {
+      "exec": "echo 'Do something...'",
+      "urgency": "Normal"
+    }
+  },
+  "notification-visibility": {
+    "example-name": {
+      "state": "muted",
+      "urgency": "Low",
+      "app-name": "Spotify"
+    }
+  },
+  "widgets": ["buttons-grid", "mpris", "title", "dnd", "notifications"],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": " 󰎟 "
+    },
+    "dnd": {
+      "text": "Do not disturb"
+    },
+    "mpris": {
+      "image-size": 40,
+      "image-radius": 12
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": true
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": " ",
+          "command": "pavucontrol"
+        },
+        {
+          "label": "",
+          "command": "blueman-manager"
+        },
+        {
+          "label": " ",
+          "command": "nm-connection-editor"
+        },
+        {
+          "label": "󰾅",
+          "command": "bash -c 'exec $HOME/.config/hypr/scripts/pwrProfiles.sh'",
+          "type": "command"
+        }
+      ]
+    }
+  }
+}

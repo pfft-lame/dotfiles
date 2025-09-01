@@ -1,0 +1,143 @@
+* {
+  border: none;
+  font-family: "JetBrainsMono Nerd Font";
+  font-weight: bold;
+  font-size: 10px;
+  min-height: 10px;
+}
+
+* > #tray > * {
+  border-radius: 8px;
+}
+
+window#waybar {
+  background: transparent;
+  color: #d5d6db;
+  border-radius: 6px;
+}
+
+tooltip {
+  background: #1a1b26;
+  border-radius: 7px;
+  border-width: 0px;
+}
+
+#workspaces button {
+  box-shadow: none;
+  text-shadow: none;
+  color: #d5d6db;
+  padding: 0px;
+  border-radius: 9px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  margin-left: 0px;
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-right: 0px;
+  animation: ws_normal 20s ease-in-out 1;
+}
+
+#workspaces button.active {
+  background: #86e1fc;
+  /*B4F9F8*/
+  color: #16161e;
+  margin-left: 3px;
+  padding-left: 12px;
+  padding-right: 12px;
+  margin-right: 3px;
+  animation: ws_active 20s ease-in-out 1;
+  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#workspaces button:hover {
+  background: #b4f9f8;
+  color: #16161e;
+  animation: ws_hover 20s ease-in-out 1;
+  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+}
+
+#tray menu * {
+  min-height: 16px;
+}
+
+#tray menu separator {
+  min-height: 10px;
+}
+
+#backlight,
+#battery,
+#bluetooth,
+#custom-cava,
+#custom-clipboard,
+#clock,
+#clock,
+#custom-cpuinfo,
+#cpu,
+#custom-github_hyde,
+#custom-gpuinfo,
+#custom-hyprsunset,
+#custom-keybindhint,
+#language,
+#memory,
+#mpris,
+#network,
+#custom-notification,
+#custom-power,
+#privacy,
+#pulseaudio,
+#custom-sensorsinfo,
+#custom-spotify,
+#taskbar,
+#taskbar,
+#taskbar,
+#taskbar#windows,
+#custom-theme,
+#tray,
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#custom-weather,
+#window,
+#workspaces,
+#idle_inhibitor,
+#workspaces,
+#workspaces,
+#custom-l_end,
+#custom-r_end {
+  background: #16161e;
+  opacity: 1;
+  margin: 4px 0px 4px 0px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#idle_inhibitor,
+#custom-notification,
+#custom-clipboard {
+  padding: 0px 5px;
+}
+
+#mpris {
+  border-radius: 7px;
+}
+
+#workspaces,
+#taskbar {
+  padding: 0px;
+}
+
+#custom-r_end {
+  border-radius: 0px 21px 21px 0px;
+  margin-right: 9px;
+  padding-right: 3px;
+}
+
+#custom-l_end {
+  border-radius: 21px 0px 0px 21px;
+  margin-left: 9px;
+  padding-left: 3px;
+}
+
+#custom-power {
+  color: #f7768e;
+}

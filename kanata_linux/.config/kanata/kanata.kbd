@@ -1,0 +1,29 @@
+(defcfg
+  process-unmapped-keys yes
+)
+
+(defsrc
+  caps tab
+  ; '
+  lalt
+)
+
+(defvar
+  tap-time 250
+  hold-time 250
+)
+
+(defalias
+  caps-mod (tap-hold $tap-time $hold-time lctl lctl)
+  tab-mod (tap-hold $tap-time $hold-time tab lmet)
+  ;-mod (tap-hold $tap-time $hold-time ; rmet)
+  '-mod (tap-hold $tap-time $hold-time ' rctl)
+  lalt-mod (tap-hold $tap-time $hold-time caps lalt)
+)
+
+(deflayer base
+  @caps-mod @tab-mod
+  @;-mod @'-mod
+  @lalt-mod
+)
+
