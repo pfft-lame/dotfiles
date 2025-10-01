@@ -34,9 +34,10 @@ return {
 			formatting.gofumpt,
 			formatting.shfmt.with({ args = { "-i", "4" } }),
 			formatting.terraform_fmt,
+			require("none-ls.diagnostics.eslint_d"),
 			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 			require("none-ls.formatting.ruff_format"),
-			require("none-ls.diagnostics.eslint_d"),
+			require("none-ls.diagnostics.ruff"),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})

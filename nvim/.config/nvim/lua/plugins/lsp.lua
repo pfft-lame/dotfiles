@@ -97,11 +97,33 @@ return {
 		})
 
 		local svelte_lsp_capabilities = vim.tbl_deep_extend("force", {}, capabilities, {
-			workspace = { didChangeWatchedFiles = false },
+			workspace = {
+				didChangeWatchedFiles = vim.fn.has("nvim-0.10") == 0 and { dynamicRegistration = true },
+			},
 		})
 		lspconfig.svelte.setup({
 			capabilities = svelte_lsp_capabilities,
 			filetypes = { "svelte" },
+			settings = {
+				svelte = {
+					plugin = {
+						svelte = {
+							defaultScriptLanguage = "ts",
+						},
+					},
+				},
+			},
+			on_attach = function(client, bufnr)
+				vim.keymap.set("n", "<leader>oi", function()
+					vim.lsp.buf.code_action({
+						apply = true,
+						context = {
+							only = { "source.organizeImports" },
+							diagnostics = {},
+						},
+					})
+				end, { desc = "Organize Imports" })
+			end,
 		})
 
 		lspconfig.tailwindcss.setup({
@@ -121,7 +143,6 @@ return {
 				"scss",
 				"pug",
 				"typescriptreact",
-				"svelte",
 			},
 			init_options = {
 				includeLanguages = {},

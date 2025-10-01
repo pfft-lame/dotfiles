@@ -24,6 +24,7 @@ return {
 		bigfile = { enabled = true },
 		explorer = { enabled = false },
 		input = { enabled = false },
+
 		scope = { enabled = false },
 		notifier = { enabled = true },
 		quickfile = { enabled = true },

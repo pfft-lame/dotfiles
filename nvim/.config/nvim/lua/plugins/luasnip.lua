@@ -20,10 +20,12 @@ return {
 		local ls = require("luasnip")
 
 		ls.config.set_config({
-			history = true, -- Remember snippet state
+			history = true,                         -- Remember snippet state
 			updateevents = "TextChanged,TextChangedI", -- Update as you type
-			enable_autosnippets = true, -- Enable automatic snippets
+			enable_autosnippets = true,             -- Enable automatic snippets
 		})
+
+		ls.filetype_extend("typescript", { "javascript" })
 
 		vim.keymap.set({ "i", "s" }, "<C-k>", function()
 			if ls.expand_or_jumpable() then

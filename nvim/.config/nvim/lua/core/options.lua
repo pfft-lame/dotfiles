@@ -81,25 +81,32 @@ vim.api.nvim_create_autocmd("textyankpost", {
 	end,
 })
 
-vim.diagnostic.config({
-	virtual_text = {
-		prefix = " ●", -- Could be "●", "■", "▎", or even an emoji
-		spacing = 4,
-	},
-	signs = true,
-	underline = true,
-	float = {
-		border = "rounded",
-	},
-	update_in_insert = true,
-})
-
 local signs = {
 	Error = " ",
 	Warn = " ",
 	Hint = " ",
 	Info = " ",
 }
+
+vim.diagnostic.config({
+	virtual_text = {
+		prefix = " ●", -- Could be "●", "■", "▎", or even an emoji
+		spacing = 4,
+	},
+	signs = {
+		text = {
+			[vim.diagnostic.severity.ERROR] = signs.Error,
+			[vim.diagnostic.severity.WARN] = signs.Warn,
+			[vim.diagnostic.severity.HINT] = signs.Hint,
+			[vim.diagnostic.severity.INFO] = signs.Info,
+		},
+	},
+	underline = true,
+	float = {
+		border = "rounded",
+	},
+	update_in_insert = true,
+})
 
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
