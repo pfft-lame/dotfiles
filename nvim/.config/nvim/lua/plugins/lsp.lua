@@ -21,17 +21,6 @@ return {
 
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
-			settings = {
-				Lua = {
-					runtime = { version = "LuaJIT" },
-					diagnostics = { globals = { "vim" } },
-					workspace = {
-						library = vim.api.nvim_get_runtime_file("", true),
-						checkThirdParty = false,
-					},
-					telemetry = { enable = false },
-				},
-			},
 		})
 
 		lspconfig.gopls.setup({
@@ -40,46 +29,6 @@ return {
 
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
-			filetypes = {
-				"typescript",
-				"typescriptreact",
-				"typescript.tsx",
-				"javascript",
-				"javascriptreact",
-				"javascript.jsx",
-			},
-			settings = {
-				typescript = {
-					inlayHints = {
-						includeInlayParameterNameHints = "all",
-						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-						includeInlayFunctionParameterTypeHints = true,
-						includeInlayVariableTypeHints = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-						includeInlayEnumMemberValueHints = true,
-					},
-					implementationsCodeLens = {
-						enabled = true,
-					},
-					referencesCodeLens = {
-						enabled = true,
-					},
-					suggest = {
-						completeFunctionCalls = true,
-					},
-				},
-				javascript = {
-					inlayHints = {
-						includeInlayParameterNameHints = "all",
-						includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-						includeInlayFunctionParameterTypeHints = true,
-						includeInlayVariableTypeHints = true,
-						includeInlayPropertyDeclarationTypeHints = true,
-						includeInlayFunctionLikeReturnTypeHints = true,
-					},
-				},
-			},
 			commands = {
 				OrganizeImports = {
 					function()
@@ -104,15 +53,6 @@ return {
 		lspconfig.svelte.setup({
 			capabilities = svelte_lsp_capabilities,
 			filetypes = { "svelte" },
-			settings = {
-				svelte = {
-					plugin = {
-						svelte = {
-							defaultScriptLanguage = "ts",
-						},
-					},
-				},
-			},
 			on_attach = function(client, bufnr)
 				vim.keymap.set("n", "<leader>oi", function()
 					vim.lsp.buf.code_action({
@@ -132,29 +72,6 @@ return {
 
 		lspconfig.emmet_language_server.setup({
 			capabilities = capabilities,
-			filetypes = {
-				"css",
-				"eruby",
-				"html",
-				"javascript",
-				"javascriptreact",
-				"less",
-				"sass",
-				"scss",
-				"pug",
-				"typescriptreact",
-			},
-			init_options = {
-				includeLanguages = {},
-				excludeLanguages = {},
-				extensionsPath = {},
-				preferences = {},
-				showAbbreviationSuggestions = true,
-				showExpandedAbbreviation = "always",
-				showSuggestionsAsSnippets = false,
-				syntaxProfiles = {},
-				variables = {},
-			},
 		})
 
 		lspconfig.html.setup({
@@ -162,6 +79,10 @@ return {
 		})
 
 		lspconfig.cssls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.yamlls.setup({
 			capabilities = capabilities,
 		})
 
@@ -173,8 +94,11 @@ return {
 
 				-- don't support json filetypes (we don't have lsp)
 				local filetype = vim.bo[bufnr].filetype
-				if filetype == "json" or filetype == "jsonc" then
-					return
+				local fts = { "json", "jsonc", "sh", "yaml" }
+				for _, ft in ipairs(fts) do
+					if ft == filetype then
+						return
+					end
 				end
 
 				map("n", "gd", vim.lsp.buf.definition, opts)

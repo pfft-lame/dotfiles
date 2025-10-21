@@ -16,6 +16,7 @@ return {
 				"typescript-language-server",
 				"tailwindcss-language-server",
 				"gopls",
+				"yaml-language-server",
 				"emmet-language-server",
 				"markdown-oxide",
 				"svelte-language-server",

@@ -52,13 +52,15 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
 # Aliases
-alias vim='nvim'
+alias vi='nvim'
 alias c='clear'
 alias ..='cd ..'
 alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -la'
 alias p='pnpm'
+alias prd='pnpm run dev'
+alias pr='pnpm run'
 
 SPACESHIP_PROMPT_ASYNC=true
 SPACESHIP_PROMPT_ADD_NEWLINE=true
