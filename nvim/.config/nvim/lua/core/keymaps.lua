@@ -8,6 +8,7 @@ map("n", "<leader>q", "<cmd>q<cr>")
 
 map("n", "<C-j>", "<cmd>cnext<CR>zz")
 map("n", "<C-k>", "<cmd>cprev<CR>zz")
+map("n", "<C-s>", "<cmd>vs<CR>")
 
 -- diagnostic keymaps
 -- map('n', '<leader>d', vim.diagnostic.setloclist, { desc = 'open diagnostic [q]uickfix list' })
@@ -40,11 +41,3 @@ map("i", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 
 map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
-
-vim.keymap.set({ "n", "v" }, "mf", function()
-	require("conform").format({
-		lsp_fallback = true,
-		async = false,
-		timeout_ms = 500,
-	})
-end, { desc = "Format file or range (in visual mode)" })

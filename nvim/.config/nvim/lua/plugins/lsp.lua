@@ -92,15 +92,6 @@ return {
 				local bufnr = event.buf
 				local opts = { noremap = true, silent = true, buffer = bufnr }
 
-				-- don't support json filetypes (we don't have lsp)
-				local filetype = vim.bo[bufnr].filetype
-				local fts = { "json", "jsonc", "sh", "yaml" }
-				for _, ft in ipairs(fts) do
-					if ft == filetype then
-						return
-					end
-				end
-
 				map("n", "gd", vim.lsp.buf.definition, opts)
 				map("n", "gt", vim.lsp.buf.type_definition, opts)
 				map("n", "K", vim.lsp.buf.hover, opts)
@@ -114,6 +105,23 @@ return {
 					vim.diagnostic.jump({ count = 1 })
 				end, opts)
 
+				vim.api.nvim_create_autocmd("LspDetach", {
+					group = vim.api.nvim_create_augroup("custom-lsp-detach", { clear = true }),
+					callback = function(event2)
+						vim.lsp.buf.clear_references()
+						vim.api.nvim_clear_autocmds({ group = "custom-lsp-highlight", buffer = event2.buf })
+					end,
+				})
+
+				-- don't support json filetypes (we don't have lsp)
+				local filetype = vim.bo[bufnr].filetype
+				local fts = { "json", "jsonc", "sh", "yaml" }
+				for _, ft in ipairs(fts) do
+					if ft == filetype then
+						return
+					end
+				end
+
 				-- highlight the references
 				local highlight_augroup = vim.api.nvim_create_augroup("custom-lsp-highlight", { clear = false })
 				vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -126,14 +134,6 @@ return {
 					buffer = event.buf,
 					group = highlight_augroup,
 					callback = vim.lsp.buf.clear_references,
-				})
-
-				vim.api.nvim_create_autocmd("LspDetach", {
-					group = vim.api.nvim_create_augroup("custom-lsp-detach", { clear = true }),
-					callback = function(event2)
-						vim.lsp.buf.clear_references()
-						vim.api.nvim_clear_autocmds({ group = "custom-lsp-highlight", buffer = event2.buf })
-					end,
 				})
 			end,
 		})

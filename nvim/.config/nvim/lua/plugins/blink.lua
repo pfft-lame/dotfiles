@@ -52,6 +52,11 @@ return {
 
 		fuzzy = {
 			implementation = "prefer_rust_with_warning",
+			sorts = {
+				"score", -- Primary sort: by fuzzy matching score
+				"sort_text", -- Secondary sort: by sortText field if scores are equal
+				"label", -- Tertiary sort: by label if still tied
+			},
 		},
 	},
 	opts_extend = { "sources.default" },
