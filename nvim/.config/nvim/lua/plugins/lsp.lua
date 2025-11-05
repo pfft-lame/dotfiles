@@ -27,6 +27,10 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.sqls.setup({
+			capabilities = capabilities,
+		})
+
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
 			commands = {
@@ -86,6 +90,14 @@ return {
 			capabilities = capabilities,
 		})
 
+		lspconfig.jsonls.setup({
+			capabilities = capabilities,
+		})
+
+		lspconfig.eslint.setup({
+			capabilities = capabilities,
+		})
+
 		vim.api.nvim_create_autocmd("LspAttach", {
 			group = vim.api.nvim_create_augroup("custom-lsp-attach", { clear = true }),
 			callback = function(event)
@@ -115,7 +127,7 @@ return {
 
 				-- don't support json filetypes (we don't have lsp)
 				local filetype = vim.bo[bufnr].filetype
-				local fts = { "json", "jsonc", "sh", "yaml" }
+				local fts = { "json", "jsonc", "sh", "yaml", "sql", "eslint" }
 				for _, ft in ipairs(fts) do
 					if ft == filetype then
 						return

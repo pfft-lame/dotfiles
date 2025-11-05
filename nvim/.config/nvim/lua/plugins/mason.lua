@@ -18,6 +18,7 @@ return {
 				"gopls",
 				"yaml-language-server",
 				"emmet-language-server",
+				"eslint-lsp",
 				"markdown-oxide",
 				"svelte-language-server",
 				"prettierd",
