@@ -6,6 +6,7 @@
   caps tab
   ; '
   spc lalt
+  q
 )
 
 (defvar
@@ -20,10 +21,12 @@
   '-mod (tap-hold $tap-time $hold-time ' rctl)
   spc-mod (tap-hold 300 300 spc lmet)
   lalt-mod (tap-hold $tap-time $hold-time caps lalt)
+  q-mod (tap-hold $tap-time $hold-time q lalt)
 )
 
 (deflayer base
   @caps-mod @tab-mod 
   @;-mod @'-mod
   @spc-mod @lalt-mod
+  @q-mod
 )
