@@ -3,7 +3,6 @@ local map = vim.keymap.set
 map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<leader>w", "<cmd>w!<cr>")
 map("n", "<leader>ww", "<cmd>wa!<cr>")
-map("n", "<C-s>", "<cmd>wa<cr>")
 map("n", "<leader>q", "<cmd>q<cr>")
 
 map("n", "<C-j>", "<cmd>cnext<CR>zz")
@@ -41,3 +40,4 @@ map("i", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 
 map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
+map("i", "<C-f>", "<Esc>la", { noremap = true, silent = true })

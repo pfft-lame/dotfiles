@@ -6,7 +6,6 @@ background-blur = true
 
 font-size = 16
 font-family = JetBrainsMono Nerd Font
-#font-family = BlexMono Nerd Font
 
 keybind = ctrl+shift+r=reload_config
 
