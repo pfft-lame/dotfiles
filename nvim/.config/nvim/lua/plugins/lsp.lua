@@ -21,10 +21,30 @@ return {
 
 		lspconfig.lua_ls.setup({
 			capabilities = capabilities,
+			settings = {
+				Lua = {
+					hint = {
+						enable = true, -- necessary
+					},
+				},
+			},
 		})
 
 		lspconfig.gopls.setup({
 			capabilities = capabilities,
+			settings = {
+				gopls = {
+					hints = {
+						rangeVariableTypes = true,
+						parameterNames = true,
+						constantValues = true,
+						assignVariableTypes = true,
+						compositeLiteralFields = true,
+						compositeLiteralTypes = true,
+						functionTypeParameters = true,
+					},
+				},
+			},
 		})
 
 		lspconfig.sqls.setup({
@@ -33,6 +53,32 @@ return {
 
 		lspconfig.ts_ls.setup({
 			capabilities = capabilities,
+			settings = {
+				typescript = {
+					inlayHints = {
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayVariableTypeHints = true,
+						includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayEnumMemberValueHints = true,
+					},
+				},
+				javascript = {
+					inlayHints = {
+						includeInlayParameterNameHints = "all",
+						includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+						includeInlayFunctionParameterTypeHints = true,
+						includeInlayVariableTypeHints = true,
+						includeInlayVariableTypeHintsWhenTypeMatchesName = true,
+						includeInlayPropertyDeclarationTypeHints = true,
+						includeInlayFunctionLikeReturnTypeHints = true,
+						includeInlayEnumMemberValueHints = true,
+					},
+				},
+			},
 			commands = {
 				OrganizeImports = {
 					function()
@@ -68,6 +114,18 @@ return {
 					})
 				end, { desc = "Organize Imports" })
 			end,
+			settings = {
+				typescript = {
+					inlayHints = {
+						parameterNames = { enabled = "all" },
+						parameterTypes = { enabled = true },
+						variableTypes = { enabled = true },
+						propertyDeclarationTypes = { enabled = true },
+						functionLikeReturnTypes = { enabled = true },
+						enumMemberValues = { enabled = true },
+					},
+				},
+			},
 		})
 
 		lspconfig.tailwindcss.setup({
@@ -127,12 +185,12 @@ return {
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if
-					client
-					and client_supports_method(
-						client,
-						vim.lsp.protocol.Methods.textDocument_documentHighlight,
-						event.buf
-					)
+						client
+						and client_supports_method(
+							client,
+							vim.lsp.protocol.Methods.textDocument_documentHighlight,
+							event.buf
+						)
 				then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -157,14 +215,13 @@ return {
 				end
 
 				if
-					client
-					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
+						client
+						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
 				then
-					-- map("n", "<leader>th", function()
-					-- 	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
-					-- 	print(vim.lsp.inlay_hint.is_enabled())
-					-- end)
-					vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
+					map("n", "<leader>h", function()
+						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
+					end)
+					-- vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })
 				end
 			end,
 		})
