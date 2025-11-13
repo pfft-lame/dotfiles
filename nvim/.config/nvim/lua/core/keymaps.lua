@@ -24,10 +24,10 @@ map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exit terminal mode" })
 --  use ctrl+<hjkl> to switch between windows
 --
 --  see `:help wincmd` for a list of all window commands
-map("n", "<c-h>", "<c-w><c-h>", { desc = "move focus to the left window" })
-map("n", "<c-l>", "<c-w><c-l>", { desc = "move focus to the right window" })
-map("n", "<c-j>", "<c-w><c-j>", { desc = "move focus to the lower window" })
-map("n", "<c-k>", "<c-w><c-k>", { desc = "move focus to the upper window" })
+-- map("n", "<c-h>", "<c-w><c-h>", { desc = "move focus to the left window" })
+-- map("n", "<c-l>", "<c-w><c-l>", { desc = "move focus to the right window" })
+-- map("n", "<c-j>", "<c-w><c-j>", { desc = "move focus to the lower window" })
+-- map("n", "<c-k>", "<c-w><c-k>", { desc = "move focus to the upper window" })
 
 -- note: some terminals have colliding keymaps or are not able to send distinct keycodes
 -- map("n", "<c-s-h>", "<c-w>h", { desc = "move window to the left" })
@@ -40,4 +40,4 @@ map("i", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 
 map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
-map("i", "<C-f>", "<Esc>la", { noremap = true, silent = true })
+map("i", "<C-l>", "<Esc>la", { noremap = true, silent = true })
