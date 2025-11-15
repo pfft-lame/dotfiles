@@ -9,9 +9,9 @@ local set = vim.opt
 
 set.expandtab = true
 set.autoindent = true
-vim.o.shiftwidth = 4
-vim.o.tabstop = 4
-vim.o.softtabstop = 4
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
 set.smartindent = true
 
 set.number = true

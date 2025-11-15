@@ -128,6 +128,34 @@ return {
 			},
 		})
 
+		lspconfig.clangd.setup({
+			capabilities = capabilities,
+			settings = {
+				clangd = {
+					InlayHints = {
+						Designators = true,
+						Enabled = true,
+						ParameterNames = true,
+						DeducedTypes = true,
+					},
+					fallbackFlags = { "-std=c++20" },
+				},
+			},
+		})
+
+		lspconfig.basedpyright.setup({
+			capabilities = capabilities,
+			settings = {
+				basedpyright = {
+					analysis = {
+						autoSearchPaths = true,
+						diagnosticMode = "openFilesOnly",
+						useLibraryCodeForTypes = true,
+					},
+				},
+			},
+		})
+
 		lspconfig.tailwindcss.setup({
 			capabilities = capabilities,
 		})
@@ -185,12 +213,12 @@ return {
 
 				local client = vim.lsp.get_client_by_id(event.data.client_id)
 				if
-						client
-						and client_supports_method(
-							client,
-							vim.lsp.protocol.Methods.textDocument_documentHighlight,
-							event.buf
-						)
+					client
+					and client_supports_method(
+						client,
+						vim.lsp.protocol.Methods.textDocument_documentHighlight,
+						event.buf
+					)
 				then
 					local highlight_augroup = vim.api.nvim_create_augroup("kickstart-lsp-highlight", { clear = false })
 					vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -215,8 +243,8 @@ return {
 				end
 
 				if
-						client
-						and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
+					client
+					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
 				then
 					map("n", "<leader>h", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))

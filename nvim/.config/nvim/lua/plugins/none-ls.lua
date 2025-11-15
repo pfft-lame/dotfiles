@@ -32,6 +32,9 @@ return {
 			formatting.stylua,
 			formatting.goimports,
 			formatting.gofumpt,
+			formatting.clang_format.with({
+				extra_args = { "--style=Google" },
+			}),
 			formatting.shfmt.with({ args = { "-i", "4" } }),
 			formatting.terraform_fmt,
 			require("none-ls.diagnostics.eslint_d"),
