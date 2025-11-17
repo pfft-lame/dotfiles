@@ -41,3 +41,4 @@ map("i", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
 map("i", "<C-l>", "<Esc>la", { noremap = true, silent = true })
+map("i", "<C-h>", "<Esc>i", { noremap = true, silent = true })
