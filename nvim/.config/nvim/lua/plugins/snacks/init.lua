@@ -33,6 +33,7 @@ return {
 		rename = { enabled = false },
 		zen = { enabled = false },
 		terminal = { enabled = false },
+		lazygit = {},
 	},
 
 	config = function(_, opts)

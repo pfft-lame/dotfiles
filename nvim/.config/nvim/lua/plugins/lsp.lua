@@ -246,7 +246,7 @@ return {
 					client
 					and client_supports_method(client, vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf)
 				then
-					map("n", "<leader>h", function()
+					map("n", "<leader>th", function()
 						vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = event.buf }))
 					end)
 					-- vim.lsp.inlay_hint.enable(true, { bufnr = event.buf })

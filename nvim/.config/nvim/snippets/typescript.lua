@@ -5,6 +5,22 @@ local i = ls.insert_node
 local f = ls.function_node
 local fmt = require("luasnip.extras.fmt").fmt
 
+ls.add_snippets("typescript", {
+  s("@tsign", { t("// @ts-ignore ") }),
+})
+
+ls.add_snippets("typescript", {
+  s("@ter", { t("// @ts-expect-err ") }),
+})
+
+ls.add_snippets("typescript", {
+  s("@esdis", { t("// @eslint-disable-next-line ") }),
+})
+
+--------------------------------
+-- Svetekit specific snippets --
+--------------------------------
+
 local function detect_load_type(_, _)
   local filename = vim.fn.expand("%:t")
 

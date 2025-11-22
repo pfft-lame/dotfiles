@@ -60,11 +60,23 @@ return {
 		function()
 			Snacks.picker.lsp_references()
 		end,
+		desc = "Show lsp references",
+		mode = "n",
 	},
 	{
 		"<leader>nh",
 		function()
 			Snacks.notifier.show_history()
 		end,
+		desc = "Open notification history",
+		mode = "n",
+	},
+	{
+		"<leader>ll",
+		function()
+			Snacks.lazygit()
+		end,
+		desc = "open lazygit",
+		mode = "n",
 	},
 }
