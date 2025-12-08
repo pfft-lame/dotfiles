@@ -16,4 +16,6 @@ app-notifications = false
 resize-overlay = never
 confirm-close-surface = false
 
+custom-shader = shaders/cursor_warp.glsl
+
 # keybind = ctrl+shift+v=paste_from_clipboard

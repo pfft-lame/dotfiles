@@ -65,6 +65,8 @@ alias la='lsd -la'
 alias p='pnpm'
 alias prd='pnpm run dev'
 alias pr='pnpm run'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 SPACESHIP_PROMPT_ASYNC=true
 SPACESHIP_PROMPT_ADD_NEWLINE=true
