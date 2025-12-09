@@ -42,3 +42,6 @@ map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buff
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
 map("i", "<C-l>", "<Esc>la", { noremap = true, silent = true })
 map("i", "<C-h>", "<Esc>i", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<A-n>", ":cnext<CR>", { silent = true })
+vim.keymap.set("n", "<A-p>", ":cprev<CR>", { silent = true })
