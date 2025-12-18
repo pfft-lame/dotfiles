@@ -56,6 +56,14 @@ return {
 		mode = "n",
 	},
 	{
+		"<leader>fk",
+		function()
+			Snacks.picker.keymaps()
+		end,
+		desc = "Find Keymaps",
+		mode = "n",
+	},
+	{
 		"gi",
 		function()
 			Snacks.picker.lsp_references()

@@ -12,7 +12,7 @@ return {
 			else
 				gitsigns.nav_hunk("next")
 			end
-		end)
+		end, { desc = "GitSigns: Nav to next hunk" })
 
 		map("n", "[c", function()
 			if vim.wo.diff then
@@ -20,10 +20,10 @@ return {
 			else
 				gitsigns.nav_hunk("prev")
 			end
-		end)
+		end, { desc = "GitSigns: Nav to prev hunk" })
 
-		map("n", "<leader>gp", gitsigns.preview_hunk)
-		map("n", "<leader>gt", gitsigns.toggle_current_line_blame)
-		map("n", "<leader>hd", gitsigns.diffthis)
+		map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "GitSigns: Preview hunk" })
+		map("n", "<leader>gt", gitsigns.toggle_current_line_blame, { desc = "GitSigns: Toggle current line blame" })
+		map("n", "<leader>hd", gitsigns.diffthis, { desc = "GitSigns: Preview entire file diff" })
 	end,
 }

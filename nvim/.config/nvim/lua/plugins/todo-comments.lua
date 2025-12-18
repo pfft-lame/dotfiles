@@ -7,11 +7,11 @@ return {
 
 		vim.keymap.set("n", "]t", function()
 			tdc.jump_next()
-		end, { desc = "Next todo comment" })
+		end, { desc = "Comments: Next todo comment" })
 
 		vim.keymap.set("n", "[t", function()
 			tdc.jump_prev()
-		end, { desc = "Previous todo comment" })
+		end, { desc = "Comments: Previous todo comment" })
 
 		tdc.setup()
 	end,

@@ -15,6 +15,9 @@ return {
 			exclude = { "node_modules", ".git", ".conf*", ".misc", ".svelte-kit" },
 			include = { "*.gitignore" },
 		},
+		keymaps = {
+			layout = { preset = "vscode" },
+		},
 	},
 	matcher = { frecency = true },
 	win = {

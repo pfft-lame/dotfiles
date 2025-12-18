@@ -1,9 +1,9 @@
 local map = vim.keymap.set
 
 map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
-map("n", "<leader>w", "<cmd>w!<cr>")
-map("n", "<leader>ww", "<cmd>wa!<cr>")
-map("n", "<leader>q", "<cmd>q<cr>")
+map("n", "<leader>w", "<cmd>w!<cr>", { desc = "NVIM: Write file" })
+map("n", "<leader>ww", "<cmd>wa!<cr>", { desc = "NVIM: Write all files" })
+map("n", "<leader>q", "<cmd>q<cr>", { desc = "NVIM: Quit" })
 
 map("n", "<C-j>", "<cmd>cnext<CR>zz")
 map("n", "<C-k>", "<cmd>cprev<CR>zz")
@@ -35,7 +35,7 @@ map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exit terminal mode" })
 -- map("n", "<c-s-j>", "<c-w>j", { desc = "move window to the lower" })
 -- map("n", "<c-s-k>", "<c-w>k", { desc = "move window to the upper" })
 
-map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "Dismiss noice notifications" })
+map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "NOTIFICATIONS: Dismiss noice notifications" })
 map("i", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 
 map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
