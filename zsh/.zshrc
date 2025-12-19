@@ -1,3 +1,18 @@
+# zmodload zsh/zprof
+
+if [[ -f "/opt/homebrew/bin/brew" ]] then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
+# show prompt early
+eval "$(starship init zsh)"
+
+# makes prompt asynchronus (git status can be computed in bg and displayed later)
+SPACESHIP_PROMPT_ASYNC=true
+# insert a blank line before each prompt
+SPACESHIP_PROMPT_ADD_NEWLINE=true
+
+
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 if [ ! -d "$ZINIT_HOME" ]; then
@@ -68,14 +83,11 @@ alias pr='pnpm run'
 alias lg='lazygit'
 alias ld='lazydocker'
 
-SPACESHIP_PROMPT_ASYNC=true
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-
-export PATH="/opt/homebrew/bin:$PATH"
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 # Shell integrations
-eval "$(starship init zsh)"
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+
+# zprof
