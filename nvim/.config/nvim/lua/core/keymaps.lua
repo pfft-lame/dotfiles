@@ -4,6 +4,8 @@ map("n", "<esc>", "<cmd>nohlsearch<cr><esc>")
 map("n", "<leader>w", "<cmd>w!<cr>", { desc = "NVIM: Write file" })
 map("n", "<leader>ww", "<cmd>wa!<cr>", { desc = "NVIM: Write all files" })
 map("n", "<leader>q", "<cmd>q<cr>", { desc = "NVIM: Quit" })
+map({ "n", "v" }, "<leader>d", '"dd')
+map({ "n", "v" }, "<leader>c", '"dc')
 
 map("n", "<C-j>", "<cmd>cnext<CR>zz")
 map("n", "<C-k>", "<cmd>cprev<CR>zz")
