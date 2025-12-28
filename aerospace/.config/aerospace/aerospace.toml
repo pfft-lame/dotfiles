@@ -136,6 +136,11 @@ automatically-unhide-macos-hidden-apps = false
     alt-ctrl-9 = ['move-node-to-workspace 9', 'workspace 9']
     alt-ctrl-0 = ['move-node-to-workspace 10', 'workspace 10']
 
+    alt-t = 'exec-and-forget open -a /Applications/Ghostty.app'
+    alt-v = 'exec-and-forget open -a /Applications/Vivaldi.app'
+    alt-b = 'exec-and-forget open -a /Applications/Brave\ Browser.app'
+    alt-e = 'exec-and-forget open -a Finder'
+
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     # alt-tab = 'workspace-back-and-forth'
     # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor

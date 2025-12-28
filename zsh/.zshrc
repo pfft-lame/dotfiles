@@ -83,6 +83,15 @@ alias pr='pnpm run'
 alias lg='lazygit'
 alias ld='lazydocker'
 
+ff() {
+   if [ -e "/Applications/AeroSpace.app" ]; then
+      aerospace list-windows --all |
+         fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
+   else
+      echo "AeroSpace not found"
+   fi
+}
+
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
