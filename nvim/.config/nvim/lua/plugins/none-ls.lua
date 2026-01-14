@@ -37,7 +37,21 @@ return {
 			}),
 			formatting.shfmt.with({ args = { "-i", "4" } }),
 			formatting.terraform_fmt,
-			require("none-ls.diagnostics.eslint_d"),
+			require("none-ls.diagnostics.eslint_d").with({
+				condition = function(utils)
+					return utils.root_has_file({
+						".eslintrc",
+						".eslintrc.js",
+						".eslintrc.cjs",
+						".eslintrc.yaml",
+						".eslintrc.yml",
+						".eslintrc.json",
+						"eslint.config.js",
+						"eslint.config.mjs",
+						"eslint.config.cjs",
+					})
+				end,
+			}),
 			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 			require("none-ls.formatting.ruff_format"),
 			require("none-ls.diagnostics.ruff"),
