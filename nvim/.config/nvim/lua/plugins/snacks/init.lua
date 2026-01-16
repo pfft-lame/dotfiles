@@ -34,6 +34,14 @@ return {
 		zen = { enabled = false },
 		terminal = { enabled = false },
 		lazygit = {},
+		image = {
+			doc = {
+				inline = false,
+				float = true,
+				-- max_width = 80,
+				-- max_height = 40,
+			},
+		},
 	},
 
 	config = function(_, opts)
