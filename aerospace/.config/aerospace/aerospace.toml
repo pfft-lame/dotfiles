@@ -139,7 +139,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-t = 'exec-and-forget open -a /Applications/Ghostty.app'
     alt-v = 'exec-and-forget open -a /Applications/Vivaldi.app'
     alt-b = 'exec-and-forget open -a /Applications/Brave\ Browser.app'
-    alt-e = 'exec-and-forget open -a Finder'
+    alt-e = 'exec-and-forget open -a /Applications/Commander\ One.app/'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     # alt-tab = 'workspace-back-and-forth'
@@ -168,3 +168,7 @@ automatically-unhide-macos-hidden-apps = false
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
+[[on-window-detected]]
+if.app-id = "org.videolan.vlc"
+run = "layout tiling"

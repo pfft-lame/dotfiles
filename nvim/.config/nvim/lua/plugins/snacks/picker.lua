@@ -18,6 +18,9 @@ return {
 		keymaps = {
 			layout = { preset = "vscode" },
 		},
+		grep = {
+			exclude = { "node_modules" },
+		},
 	},
 	matcher = { frecency = true },
 	win = {

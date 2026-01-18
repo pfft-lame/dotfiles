@@ -64,6 +64,22 @@ return {
 		mode = "n",
 	},
 	{
+		"<leader>ff",
+		function()
+			Snacks.picker.lsp_symbols({
+				filter = {
+					default = {
+						"Function",
+						"Method",
+						"Constructor",
+					},
+				},
+			})
+		end,
+		desc = "Find functions in a buffer",
+		mode = "n",
+	},
+	{
 		"gi",
 		function()
 			Snacks.picker.lsp_references()
