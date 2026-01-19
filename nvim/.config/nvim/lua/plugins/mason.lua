@@ -1,38 +1,44 @@
 return {
-	"williamboman/mason.nvim",
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	lazy = false,
 	auto_update = false,
 	dependencies = {
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		{
+			"williamboman/mason.nvim",
+			opts = {},
+		},
+		{ "neovim/nvim-lspconfig" },
+		-- require("lspconfig.ui.windows").default_options.border = "rounded"
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
+		},
 	},
-	config = function()
-		require("mason").setup()
-
-		require("mason-tool-installer").setup({
-			ensure_installed = {
-				"lua-language-server",
-				"html-lsp",
-				"css-lsp",
-				"typescript-language-server",
-				"tailwindcss-language-server",
-				"gopls",
-				"clangd",
-				"basedpyright",
-				"yaml-language-server",
-				"emmet-language-server",
-				"eslint-lsp",
-				"markdown-oxide",
-				"svelte-language-server",
-				"prettierd",
-				"stylua",
-				"gofumpt",
-				"clang-format",
-				"goimports",
-				"eslint_d",
-				"ruff",
-				"shfmt",
-				"checkmake",
-			},
-		})
-	end,
+	opts = {
+		ensure_installed = {
+			"lua-language-server",
+			"html-lsp",
+			"css-lsp",
+			"typescript-language-server",
+			"tailwindcss-language-server",
+			"gopls",
+			"clangd",
+			"basedpyright",
+			"yaml-language-server",
+			"emmet-language-server",
+			"eslint-lsp",
+			"markdown-oxide",
+			"svelte-language-server",
+			"prettierd",
+			"stylua",
+			"gofumpt",
+			"clang-format",
+			"goimports",
+			"eslint_d",
+			"ruff",
+			"shfmt",
+			"checkmake",
+		},
+	},
 }
