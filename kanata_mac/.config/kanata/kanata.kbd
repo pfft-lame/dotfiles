@@ -1,12 +1,16 @@
 (defcfg
   process-unmapped-keys yes
+  log-layer-changes no
+  concurrent-tap-hold yes
 )
 
 (defsrc
-  caps tab
-  ; '
-  spc lalt
-  q
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv    1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab    q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps   a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft   z    x    c    v    b    n    m    ,    .    /    ▲   rsft
+  fn   lctl  lalt lmet          spc         rmet ralt ◀    ▼    ▶
 )
 
 (defvar
@@ -22,11 +26,42 @@
   spc-mod (tap-hold 300 300 spc lmet)
   lalt-mod (tap-hold $tap-time $hold-time caps lalt)
   q-mod (tap-hold $tap-time $hold-time q lalt)
+
+  ;; alt-bspc (multi lalt bspc)
+
+  ;; sublayers
+  ;; lsym (tap-hold $tap-time $hold-time s (layer-toggle sym))
+  ;; lnum (tap-hold $tap-time $hold-time l (layer-toggle num))
 )
 
 (deflayer base
-  @caps-mod @tab-mod 
-  @;-mod @'-mod
-  @spc-mod @lalt-mod
-  @q-mod
+  grv        f1       f2         f3   f4   f5   f6   f7   f8   f9     f10     f11     f12
+  grv        1        2          3    4    5    6    7    8    9      0       -       =    bspc
+  @tab-mod   @q-mod   w          e    r    t    y    u    i    o      p       [       ]    \
+  @caps-mod  a        s          d    f    g    h    j    k    l      @;-mod  @'-mod  ret
+  lsft       z        x          c    v    b    n    m    ,    .      /       ▲       rsft
+  fn         lctl     @lalt-mod  lmet       @spc-mod      rmet ralt   ◀       ▼       ▶
+)
+
+
+;; (deflayer sym
+;;   esc    f1   f2   f3   f4   f5   f6    f7    f8    f9    f10    f11  f12
+;;   grv    1    2    3    4    5    6     7     8     9     0      -    =    bspc
+;;   tab    q    w    e    r    t    S-5   -     [     ]     S-\    [    ]    \
+;;   caps   a    s    d    f    g    =     S-=   S-9   S-0   S--    '    @alt-bspc
+;;   lsft   z    x    c    v    b    \     S-8   S-[   S-]   S-grv  ▲    rsft
+;;   fn   lctl  lalt lmet           bspc         rmet  ralt  ◀      ▼    ▶
+;; )
+;; 
+;; (deflayer num
+;;   esc    f1    f2   f3   f4   f5    f6   f7   f8   f9   f10  f11  f12
+;;   grv    1     2    3    4    5     6    7    8    9    0    -    =    bspc
+;;   tab    S-1   1    2    3    grv   y    u    i    o    p    [    ]    \
+;;   caps   0     4    5    6    S-4   h    j    k    l    ;    '    ret
+;;   lsft   S-6   7    8    9    S-7   n    m    ,    .    /    ▲    rsft
+;;   fn   lctl   lalt lmet            tab        rmet ralt ◀    ▼    ▶
+;; )
+
+(defchordsv2
+  (s l) caps 60 first-release ()
 )

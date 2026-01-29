@@ -17,11 +17,11 @@ alias ld='lazydocker'
 
 bind \cw forward-word
 bind \cb backward-word
+bind \ct complete-and-search
 
 set -g fish_greeting ""
 
 
 export PATH="/opt/homebrew/bin:$PATH"
 
-fzf --fish | source
 starship init fish | source

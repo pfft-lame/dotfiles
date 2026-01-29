@@ -1,0 +1,223 @@
+{
+  "$schema": "https://opencode.ai/theme.json",
+  "defs": {
+    "tokyo0": "#1A1B26",
+    "tokyo1": "#2F3549",
+    "tokyo2": "#444B6A",
+    "tokyo3": "#787C99",
+    "tokyo4": "#A9B1D6",
+    "tokyo5": "#CBCCD1",
+    "tokyo6": "#D5D6DB",
+    "tokyo7": "#73daca",
+    "tokyo8": "#89ddff",
+    "tokyo9": "#0DB9D7",
+    "tokyo10": "#82aaff",
+    "tokyo11": "#ff757f",
+    "tokyo12": "#ffc777",
+    "tokyo13": "#ffdf77",
+    "tokyo14": "#c3e88d",
+    "tokyo15": "#BB9AF7"
+  },
+  "theme": {
+    "primary": {
+      "dark": "tokyo8",
+      "light": "tokyo10"
+    },
+    "secondary": {
+      "dark": "tokyo9",
+      "light": "tokyo9"
+    },
+    "accent": {
+      "dark": "tokyo7",
+      "light": "tokyo7"
+    },
+    "error": {
+      "dark": "tokyo11",
+      "light": "tokyo11"
+    },
+    "warning": {
+      "dark": "tokyo12",
+      "light": "tokyo12"
+    },
+    "success": {
+      "dark": "tokyo14",
+      "light": "tokyo14"
+    },
+    "info": {
+      "dark": "tokyo8",
+      "light": "tokyo10"
+    },
+    "text": {
+      "dark": "tokyo4",
+      "light": "tokyo0"
+    },
+    "textMuted": {
+      "dark": "tokyo3",
+      "light": "tokyo1"
+    },
+    "background": {
+      "dark": "none",
+      "light": "none"
+    },
+    "backgroundPanel": {
+      "dark": "tokyo0",
+      "light": "tokyo5"
+    },
+    "backgroundElement": {
+      "dark": "tokyo0",
+      "light": "tokyo4"
+    },
+    "border": {
+      "dark": "tokyo2",
+      "light": "tokyo3"
+    },
+    "borderActive": {
+      "dark": "tokyo3",
+      "light": "tokyo2"
+    },
+    "borderSubtle": {
+      "dark": "tokyo2",
+      "light": "tokyo3"
+    },
+    "diffAdded": {
+      "dark": "tokyo14",
+      "light": "tokyo14"
+    },
+    "diffRemoved": {
+      "dark": "tokyo11",
+      "light": "tokyo11"
+    },
+    "diffContext": {
+      "dark": "tokyo3",
+      "light": "tokyo3"
+    },
+    "diffHunkHeader": {
+      "dark": "tokyo3",
+      "light": "tokyo3"
+    },
+    "diffHighlightAdded": {
+      "dark": "tokyo14",
+      "light": "tokyo14"
+    },
+    "diffHighlightRemoved": {
+      "dark": "tokyo11",
+      "light": "tokyo11"
+    },
+    "diffAddedBg": {
+      "dark": "#3B4252",
+      "light": "#E5E9F0"
+    },
+    "diffRemovedBg": {
+      "dark": "#3B4252",
+      "light": "#E5E9F0"
+    },
+    "diffContextBg": {
+      "dark": "tokyo0",
+      "light": "tokyo5"
+    },
+    "diffLineNumber": {
+      "dark": "tokyo2",
+      "light": "tokyo4"
+    },
+    "diffAddedLineNumberBg": {
+      "dark": "#3B4252",
+      "light": "#E5E9F0"
+    },
+    "diffRemovedLineNumberBg": {
+      "dark": "#3B4252",
+      "light": "#E5E9F0"
+    },
+    "markdownText": {
+      "dark": "tokyo4",
+      "light": "tokyo0"
+    },
+    "markdownHeading": {
+      "dark": "tokyo8",
+      "light": "tokyo10"
+    },
+    "markdownLink": {
+      "dark": "tokyo9",
+      "light": "tokyo9"
+    },
+    "markdownLinkText": {
+      "dark": "tokyo7",
+      "light": "tokyo7"
+    },
+    "markdownCode": {
+      "dark": "tokyo14",
+      "light": "tokyo14"
+    },
+    "markdownBlockQuote": {
+      "dark": "tokyo3",
+      "light": "tokyo3"
+    },
+    "markdownEmph": {
+      "dark": "tokyo12",
+      "light": "tokyo12"
+    },
+    "markdownStrong": {
+      "dark": "tokyo13",
+      "light": "tokyo13"
+    },
+    "markdownHorizontalRule": {
+      "dark": "tokyo3",
+      "light": "tokyo3"
+    },
+    "markdownListItem": {
+      "dark": "tokyo8",
+      "light": "tokyo10"
+    },
+    "markdownListEnumeration": {
+      "dark": "tokyo7",
+      "light": "tokyo7"
+    },
+    "markdownImage": {
+      "dark": "tokyo9",
+      "light": "tokyo9"
+    },
+    "markdownImageText": {
+      "dark": "tokyo7",
+      "light": "tokyo7"
+    },
+    "markdownCodeBlock": {
+      "dark": "tokyo4",
+      "light": "tokyo0"
+    },
+    "syntaxComment": {
+      "dark": "tokyo3",
+      "light": "tokyo3"
+    },
+    "syntaxKeyword": {
+      "dark": "tokyo9",
+      "light": "tokyo9"
+    },
+    "syntaxFunction": {
+      "dark": "tokyo8",
+      "light": "tokyo8"
+    },
+    "syntaxVariable": {
+      "dark": "tokyo7",
+      "light": "tokyo7"
+    },
+    "syntaxString": {
+      "dark": "tokyo14",
+      "light": "tokyo14"
+    },
+    "syntaxNumber": {
+      "dark": "tokyo15",
+      "light": "tokyo15"
+    },
+    "syntaxType": {
+      "dark": "tokyo7",
+      "light": "tokyo7"
+    },
+    "syntaxOperator": {
+      "dark": "tokyo9",
+      "light": "tokyo9"
+    },
+    "syntaxPunctuation": {
+      "dark": "tokyo4",
+      "light": "tokyo0"
+    }
+  }
+}

@@ -38,12 +38,11 @@ map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exit terminal mode" })
 -- map("n", "<c-s-k>", "<c-w>k", { desc = "move window to the upper" })
 
 map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "NOTIFICATIONS: Dismiss noice notifications" })
-map("i", "<C-k>", vim.lsp.buf.signature_help, { noremap = true, silent = true })
 
 map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
 map("i", "<C-l>", "<Esc>la", { noremap = true, silent = true })
 map("i", "<C-h>", "<Esc>i", { noremap = true, silent = true })
 
-vim.keymap.set("n", "<A-n>", ":cnext<CR>", { silent = true })
-vim.keymap.set("n", "<A-p>", ":cprev<CR>", { silent = true })
+map("n", "<A-n>", ":cnext<CR>", { silent = true })
+map("n", "<A-p>", ":cprev<CR>", { silent = true })

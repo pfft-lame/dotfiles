@@ -3,12 +3,8 @@ return {
 	lazy = false,
 	auto_update = false,
 	dependencies = {
-		{
-			"williamboman/mason.nvim",
-			opts = {},
-		},
+		{ "williamboman/mason.nvim", config = true },
 		{ "neovim/nvim-lspconfig" },
-		-- require("lspconfig.ui.windows").default_options.border = "rounded"
 		{
 			"folke/lazydev.nvim",
 			ft = "lua",
@@ -42,3 +38,4 @@ return {
 		},
 	},
 }
+-- require("lspconfig.ui.windows").default_options.border = "rounded"

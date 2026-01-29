@@ -139,7 +139,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-t = 'exec-and-forget open -a /Applications/Ghostty.app'
     alt-v = 'exec-and-forget open -a /Applications/Vivaldi.app'
     alt-b = 'exec-and-forget open -a /Applications/Brave\ Browser.app'
-    alt-e = 'exec-and-forget open -a /Applications/Commander\ One.app/'
+    alt-e = 'exec-and-forget open -a finder'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     # alt-tab = 'workspace-back-and-forth'

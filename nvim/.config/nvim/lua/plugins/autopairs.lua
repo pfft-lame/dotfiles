@@ -3,7 +3,7 @@ return {
 	event = "InsertEnter",
 	opts = {
 		fast_wrap = {},
-		disable_filetype = { "TelescopePrompt", "vim" },
+		disable_filetype = { "snacks_picker_input", "vim" },
 	},
 	config = function(_, opts)
 		require("nvim-autopairs").setup(opts)

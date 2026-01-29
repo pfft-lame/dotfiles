@@ -39,7 +39,8 @@ zinit snippet OMZP::kubectx
 zinit snippet OMZP::command-not-found
 
 # Load completions
-autoload -Uz compinit && compinit
+autoload -Uz compinit
+compinit -C
 
 zinit cdreplay -q
 
@@ -70,6 +71,10 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
 zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line
+
 # Aliases
 alias vi='nvim'
 alias c='clear'
@@ -78,22 +83,19 @@ alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -la'
 alias p='pnpm'
-alias prd='pnpm run dev'
-alias pr='pnpm run'
+alias pd='pnpm dev'
+alias pa='pnpm add'
 alias lg='lazygit'
 alias ld='lazydocker'
 
-ff() {
-   if [ -e "/Applications/AeroSpace.app" ]; then
-      aerospace list-windows --all |
-         fzf --bind 'enter:execute(bash -c "aerospace focus --window-id {1}")+abort'
-   else
-      echo "AeroSpace not found"
-   fi
-}
+if [[ "$OSTYPE" == "darwin"* ]]; then
+   alias os='orbctl start'
+   alias od='orbctl stop'
+fi
 
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+export EDITOR="nvim"
 
 # Shell integrations
 eval "$(fzf --zsh)"

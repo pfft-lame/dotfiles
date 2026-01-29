@@ -15,6 +15,8 @@ return {
 			["<C-space"] = { "fallback" },
 			["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
 			["<Tab>"] = { "fallback" },
+			["<C-k>"] = { "snippet_forward" },
+			["<C-j>"] = { "snippet_backward" },
 		},
 
 		appearance = {
@@ -46,6 +48,8 @@ return {
 					name = "LSP",
 					module = "blink.cmp.sources.lsp",
 					opts = { tailwind_color_icon = "" },
+					-- score_offset = 100,
+					should_show_items = true,
 				},
 			},
 		},

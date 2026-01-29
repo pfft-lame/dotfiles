@@ -33,6 +33,7 @@ vim.lsp.config("gopls", {
 vim.lsp.config("ts_ls", {
 	settings = {
 		typescript = {
+			updateImportsOnFileMove = { enabled = "always" },
 			inlayHints = {
 				includeInlayParameterNameHints = "all",
 				includeInlayParameterNameHintsWhenArgumentMatchesName = true,
@@ -64,6 +65,13 @@ vim.lsp.config("ts_ls", {
 				arguments = { vim.api.nvim_buf_get_name(0) },
 			})
 		end)
+
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			pattern = { "*.js", "*.ts" },
+			callback = function(ctx)
+				client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+			end,
+		})
 	end,
 })
 
@@ -91,6 +99,13 @@ vim.lsp.config("svelte", {
 				},
 			})
 		end, { desc = "Organize Imports" })
+
+		vim.api.nvim_create_autocmd("BufWritePost", {
+			pattern = { "*.js", "*.ts" },
+			callback = function(ctx)
+				client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+			end,
+		})
 	end,
 })
 
@@ -117,6 +132,18 @@ vim.lsp.config("basedpyright", {
 				useLibraryCodeForTypes = true,
 			},
 		},
+	},
+})
+
+vim.lsp.config("emmet_language_server", {
+	filetypes = {
+		"html",
+		"css",
+		"scss",
+		"sass",
+		"less",
+		"javascriptreact",
+		"typescriptreact",
 	},
 })
 
