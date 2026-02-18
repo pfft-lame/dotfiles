@@ -39,10 +39,22 @@ map("t", "<esc><esc>", "<c-\\><c-n>", { desc = "exit terminal mode" })
 
 map("n", "<leader>nd", "<cmd>NoiceDismiss<cr>", { desc = "NOTIFICATIONS: Dismiss noice notifications" })
 
-map("n", "L", "<C-^>", { noremap = true, silent = true }) -- Go to previous buffer
 map("n", "<C-x>", "<cmd>bd<CR>", { noremap = true, silent = true })
 map("i", "<C-l>", "<Esc>la", { noremap = true, silent = true })
 map("i", "<C-h>", "<Esc>i", { noremap = true, silent = true })
 
 map("n", "<A-n>", ":cnext<CR>", { silent = true })
 map("n", "<A-p>", ":cprev<CR>", { silent = true })
+
+map("n", "L", function()
+  local buffers = vim.fn.getbufinfo({ buflisted = 1 })
+
+  -- sort by most recently used (same logic picker uses)
+  table.sort(buffers, function(a, b)
+    return a.lastused > b.lastused
+  end)
+
+  if buffers[2] then
+    vim.cmd("buffer " .. buffers[2].bufnr)
+  end
+end, { desc = "Switch to 2nd most recent buffer" })

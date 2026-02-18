@@ -9,8 +9,8 @@ return {
 					local ignore_dirs = {
 						".git",
 						"node_modules",
-						".svelte-kit",
-						"dist",
+						-- ".svelte-kit",
+						-- "dist",
 					}
 
 					local path = fs_entry.name

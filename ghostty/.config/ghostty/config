@@ -2,7 +2,7 @@ background = #16161E
 background-opacity = 0.9
 theme = "tokyonight"
 macos-titlebar-style = hidden
-background-blur = true
+background-blur = 70
 
 font-size = 16
 font-family = JetBrainsMono Nerd Font

@@ -1,6 +1,7 @@
 vim.lsp.enable({
 	"lua_ls",
 	"gopls",
+	"elixirls",
 	"ts_ls",
 	"svelte",
 	"clangd",
@@ -144,6 +145,15 @@ vim.lsp.config("emmet_language_server", {
 		"less",
 		"javascriptreact",
 		"typescriptreact",
+	},
+})
+
+vim.lsp.config("jsonls", {
+	settings = {
+		json = {
+			schemas = require("schemastore").json.schemas(),
+			validate = { enable = true },
+		},
 	},
 })
 

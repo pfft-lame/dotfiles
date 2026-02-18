@@ -63,5 +63,5 @@
 ;; )
 
 (defchordsv2
-  (s l) caps 60 first-release ()
+  (caps ret) caps 50 first-release ()
 )

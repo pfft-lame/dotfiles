@@ -20,7 +20,13 @@ return {
 						icon = "",
 					},
 				},
-				lualine_c = { "filename", "diagnostics" },
+				lualine_c = {
+					{ "filename" },
+					{
+						"diagnostics",
+						symbols = { error = " ", warn = " ", info = " ", hint = " " },
+					},
+				},
 				lualine_x = {
 					{
 						"diff",

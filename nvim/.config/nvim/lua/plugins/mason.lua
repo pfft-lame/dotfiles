@@ -19,6 +19,7 @@ return {
 			"typescript-language-server",
 			"tailwindcss-language-server",
 			"gopls",
+			"elixir-ls",
 			"clangd",
 			"basedpyright",
 			"yaml-language-server",

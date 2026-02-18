@@ -85,6 +85,7 @@ alias la='lsd -la'
 alias p='pnpm'
 alias pd='pnpm dev'
 alias pa='pnpm add'
+alias pi='pnpm i'
 alias lg='lazygit'
 alias ld='lazydocker'
 
@@ -100,5 +101,6 @@ export EDITOR="nvim"
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+# eval "$(direnv hook zsh)"
 
 # zprof

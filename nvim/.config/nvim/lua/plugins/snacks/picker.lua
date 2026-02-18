@@ -12,7 +12,7 @@ return {
 		files = {
 			hidden = true,
 			ignored = true,
-			exclude = { "node_modules", ".git", ".conf*", ".misc", ".svelte-kit" },
+			exclude = { "node_modules", ".git", ".conf*", ".misc", ".svelte-kit", ".turbo*" },
 			include = { "*.gitignore" },
 		},
 		keymaps = {

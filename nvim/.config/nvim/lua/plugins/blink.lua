@@ -17,6 +17,8 @@ return {
 			["<Tab>"] = { "fallback" },
 			["<C-k>"] = { "snippet_forward" },
 			["<C-j>"] = { "snippet_backward" },
+			["C-n"] = { "select_next" },
+			["C-p"] = { "select_prev" },
 		},
 
 		appearance = {

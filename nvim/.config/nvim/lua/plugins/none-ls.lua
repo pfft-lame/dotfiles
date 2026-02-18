@@ -31,12 +31,18 @@ return {
 			}),
 			formatting.stylua,
 			formatting.goimports,
+			formatting.mix,
 			formatting.gofumpt,
 			formatting.clang_format.with({
 				extra_args = { "--style=Google" },
 			}),
 			formatting.shfmt.with({ args = { "-i", "4" } }),
 			formatting.terraform_fmt,
+			diagnostics.credo.with({
+				condition = function(utils)
+					return utils.root_has_file({ "mix.exs" })
+				end,
+			}),
 			require("none-ls.diagnostics.eslint_d").with({
 				condition = function(utils)
 					return utils.root_has_file({

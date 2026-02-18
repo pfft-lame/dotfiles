@@ -103,4 +103,18 @@ return {
 		desc = "open lazygit",
 		mode = "n",
 	},
+	{
+		"<leader>ft",
+		function()
+			Snacks.picker.todo_comments()
+		end,
+		desc = "Find Todo comments",
+	},
+	{
+		"<leader>fp",
+		function()
+			Snacks.picker.diagnostics()
+		end,
+		desc = "Find diagnostics",
+	},
 }
