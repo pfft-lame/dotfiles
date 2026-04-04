@@ -5,11 +5,6 @@ return {
 	dependencies = {
 		{ "williamboman/mason.nvim", config = true },
 		{ "neovim/nvim-lspconfig" },
-		{
-			"folke/lazydev.nvim",
-			ft = "lua",
-			opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
-		},
 	},
 	opts = {
 		ensure_installed = {
@@ -31,11 +26,12 @@ return {
 			"stylua",
 			"gofumpt",
 			"clang-format",
+			"sql-formatter",
 			"goimports",
 			"eslint_d",
 			"ruff",
 			"shfmt",
-			"checkmake",
+			-- "checkmake",
 		},
 	},
 }

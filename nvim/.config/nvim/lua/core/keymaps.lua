@@ -46,6 +46,10 @@ map("i", "<C-h>", "<Esc>i", { noremap = true, silent = true })
 map("n", "<A-n>", ":cnext<CR>", { silent = true })
 map("n", "<A-p>", ":cprev<CR>", { silent = true })
 
+map("v", "<", "<gv")
+map("v", ">", ">gv")
+map({ "v", "n" }, "*", "*N")
+
 map("n", "L", function()
   local buffers = vim.fn.getbufinfo({ buflisted = 1 })
 

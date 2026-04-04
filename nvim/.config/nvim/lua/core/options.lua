@@ -16,7 +16,7 @@ set.smartindent = true
 
 set.number = true
 set.relativenumber = true
--- set.virtualedit = "block"
+set.virtualedit = "block"
 set.termguicolors = true
 
 -- enable mouse mode, can be useful for resizing splits for example!

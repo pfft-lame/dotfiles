@@ -23,20 +23,29 @@ source "${ZINIT_HOME}/zinit.zsh"
 
 
 # Add in zsh plugins
-zinit light zsh-users/zsh-syntax-highlighting
-zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
+zinit ice wait lucid
+zinit light zsh-users/zsh-syntax-highlighting
+
+zinit ice wait lucid
+zinit light zsh-users/zsh-completions
+
 # Add in snippets
-zinit snippet OMZL::git.zsh
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::aws
-zinit snippet OMZP::docker
-zinit snippet OMZP::kubectl
-zinit snippet OMZP::kubectx
-zinit snippet OMZP::command-not-found
+for snip in \
+  OMZL::git.zsh \
+  OMZP::git \
+  OMZP::sudo \
+  OMZP::aws \
+  OMZP::docker \
+  OMZP::kubectl \
+  OMZP::kubectx \
+  OMZP::command-not-found
+do
+  zinit ice wait lucid
+  zinit snippet "$snip"
+done
 
 # Load completions
 autoload -Uz compinit
@@ -97,6 +106,8 @@ fi
 export GOPATH=$HOME/go
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 export EDITOR="nvim"
+
+# [[ -r ~/.opam/opam-init/init.zsh ]] && source ~/.opam/opam-init/init.zsh >/dev/null 2>&1
 
 # Shell integrations
 eval "$(fzf --zsh)"

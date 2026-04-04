@@ -1,8 +1,13 @@
 return {
 	"saghen/blink.cmp",
 	dependencies = {
-		"rafamadriz/friendly-snippets",
-		"L3MON4D3/LuaSnip",
+		{ "rafamadriz/friendly-snippets" },
+		{ "L3MON4D3/LuaSnip" },
+		{
+			"folke/lazydev.nvim",
+			ft = "lua",
+			opts = { library = { { path = "${3rd}/luv/library", words = { "vim%.uv" } } } },
+		},
 	},
 
 	version = "1.*",
@@ -44,7 +49,7 @@ return {
 
 		snippets = { preset = "luasnip" },
 		sources = {
-			default = { "lsp", "path", "buffer", "snippets" },
+			default = { "lazydev", "lsp", "path", "buffer", "snippets" },
 			providers = {
 				lsp = {
 					name = "LSP",
@@ -52,6 +57,11 @@ return {
 					opts = { tailwind_color_icon = "" },
 					-- score_offset = 100,
 					should_show_items = true,
+				},
+				lazydev = {
+					name = "LazyDev",
+					module = "lazydev.integrations.blink",
+					score_offset = 100,
 				},
 			},
 		},
