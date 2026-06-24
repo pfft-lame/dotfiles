@@ -97,6 +97,7 @@ alias pa='pnpm add'
 alias pi='pnpm i'
 alias lg='lazygit'
 alias ld='lazydocker'
+alias z='zoxide'
 
 if [[ "$OSTYPE" == "darwin"* ]]; then
    alias os='orbctl start'
@@ -115,3 +116,5 @@ eval "$(zoxide init --cmd cd zsh)"
 # eval "$(direnv hook zsh)"
 
 # zprof
+
+export PATH="$HOME/.local/bin:$PATH"
