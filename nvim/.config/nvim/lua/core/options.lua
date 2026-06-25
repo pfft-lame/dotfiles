@@ -9,9 +9,9 @@ local set = vim.opt
 
 set.expandtab = true
 set.autoindent = true
-vim.opt.shiftwidth = 2
-vim.opt.tabstop = 2
-vim.opt.softtabstop = 2
+set.shiftwidth = 2
+set.tabstop = 2
+set.softtabstop = 2
 set.smartindent = true
 
 set.number = true
@@ -73,11 +73,20 @@ set.confirm = true
 -- set the default border for all the floating windows
 set.winborder = "rounded"
 
-vim.api.nvim_create_autocmd("textyankpost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
 	desc = "highlight when yanking (copying) text",
 	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
 	callback = function()
-		vim.highlight.on_yank()
+		vim.hl.on_yank()
+	end,
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "make", "svelte", "go" },
+	callback = function()
+		vim.opt_local.expandtab = false
+		vim.opt_local.shiftwidth = 4
+		vim.opt_local.tabstop = 4
 	end,
 })
 

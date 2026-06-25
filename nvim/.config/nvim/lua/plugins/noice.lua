@@ -12,6 +12,17 @@ return {
 					throttle = 700 / 3,
 				},
 			},
+			routes = {
+				{
+					filter = {
+						any = {
+							{ event = "lsp",    kind = "progress",    find = "basedpyright" },
+							{ event = "notify", find = "basedpyright" },
+						},
+					},
+					opts = { skip = true },
+				},
+			},
 		})
 	end,
 }

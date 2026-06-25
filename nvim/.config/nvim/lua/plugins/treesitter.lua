@@ -1,100 +1,100 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	build = ":TSUpdate",
-	dependencies = {
-		{ "nvim-treesitter/nvim-treesitter-textobjects" },
-	},
-	config = function()
-		---@diagnostic disable-next-line: missing-fields
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
-				"c",
-				"lua",
-				"query",
-				"markdown",
-				"markdown_inline",
-				"go",
-				"svelte",
-				"javascript",
-				"typescript",
-				"yaml",
-				"json",
-				"html",
-				"css",
-			},
+  "nvim-treesitter/nvim-treesitter",
+  commit = "90cd658",
+  main = "nvim-treesitter",
+  -- build = ":TSUpdate",
+  event = { "BufReadPost", "BufNewFile" },
+  init = function()
+    local highlight = function(bufnr, lang)
+      -------------------[ treesitter highlights ]-------------------------------
+      if not vim.treesitter.language.add(lang) then
+        return vim.notify(
+          string.format("Treesitter cannot load parser for language: %s", lang),
+          vim.log.levels.INFO,
+          { title = "Treesitter" }
+        )
+      end
+      vim.treesitter.start(bufnr)
+    end
 
-			auto_install = true,
-			highlight = {
-				enable = true,
-				disable = function(lang, buf)
-					local max_filesize = 100 * 1024 -- 100 KB
-					local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-					if ok and stats and stats.size > max_filesize then
-						return true
-					end
-				end,
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function(args)
+        local ft = vim.bo.filetype
+        local bt = vim.bo.buftype
+        local buf = args.buf
 
-				-- for langs like ruby and php
-				additional_vim_regex_highlighting = false,
-			},
+        if bt ~= "" then
+          return
+        end         -- don't run further.
 
-			indent = { enable = true },
+        local ok, treesitter = pcall(require, "nvim-treesitter")
+        if not ok then
+          return
+        end
 
-			---@diagnostic disable-next-line: missing-fields
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<leader>ss", -- set to `false` to disable one of the mappings
-					node_incremental = "<leader>si",
-					scope_incremental = "<leader>sc",
-					node_decremental = "<leader>sd",
-				},
-			},
+        ---------------------[ treesitter indent ]-------------------------------
 
-			---@diagnostic disable-next-line: missing-fields
-			textobjects = {
-				select = {
-					enable = true,
+        if not vim.tbl_contains({ "python", "html", "yaml", "markdown" }, ft) then
+          vim.bo.indentexpr = "v:lua.require('nvim-treesitter').indentexpr()"
+        end
 
-					-- Automatically jump forward to textobj, similar to targets.vim
-					lookahead = true,
+        --------------------[ treesitter parsers ]-------------------------------
+        if vim.fn.executable("tree-sitter") ~= 1 then
+          vim.api.nvim_echo({
+            {
+              "tree-sitter CLI not found. Parsers cannot be installed.",
+              "ErrorMsg",
+            },
+          }, true, {})
+          return false
+        end
 
-					keymaps = {
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
-						["as"] = { query = "@local.scope", query_group = "locals", desc = "Select language scope" },
-					},
-					selection_modes = {
-						["@parameter.outer"] = "v", -- charwise
-						["@function.outer"] = "V", -- linewise
-						["@class.outer"] = "<c-v>", -- blockwise
-					},
-					include_surrounding_whitespace = true,
-				},
+        if not vim.treesitter.language.get_lang(ft) then
+          return
+        end
 
-				move = {
-					enable = true,
-					set_jumps = true, -- Add jumps to jumplist
-					goto_next_start = {
-						["]f"] = "@function.outer",
-						["]c"] = "@class.outer",
-					},
-					goto_next_end = {
-						["]F"] = "@function.outer",
-						["]C"] = "@class.outer",
-					},
-					goto_previous_start = {
-						["[f"] = "@function.outer",
-						["[c"] = "@class.outer",
-					},
-					goto_previous_end = {
-						["[F"] = "@function.outer",
-						["[C"] = "@class.outer",
-					},
-				},
-			},
-		})
-	end,
+        if vim.list_contains(treesitter.get_installed(), ft) then
+          highlight(buf, ft)
+        elseif vim.list_contains(treesitter.get_available(), ft) then
+          treesitter.install(ft):await(function()
+            highlight(buf, ft)
+          end)
+        end
+      end,
+    })
+  end,
+  opts = {
+    install = {
+      "comment",
+      "regex",
+      "vimdoc",
+      "c",
+      "lua",
+      "query",
+      "markdown",
+      "markdown_inline",
+      "go",
+      "svelte",
+      "javascript",
+      "typescript",
+      "yaml",
+      "json",
+      "html",
+      "css",
+    },
+  },
+  config = function(_, opts)
+    local treesitter = require("nvim-treesitter")
+    treesitter.setup(opts)
+    if vim.fn.executable("tree-sitter") ~= 1 then
+      vim.api.nvim_echo({
+        {
+          "tree-sitter CLI not found. Parsers cannot be installed.",
+          "ErrorMsg",
+        },
+      }, true, {})
+      return false
+    end
+    treesitter.install(opts.install)
+  end,
 }

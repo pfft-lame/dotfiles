@@ -1,11 +1,11 @@
 vim.lsp.enable({
 	"lua_ls",
 	"gopls",
-	"elixirls",
+	"expert",
 	"ts_ls",
 	"svelte",
 	"clangd",
-	"basedpyright",
+	-- "basedpyright",
 	"tailwindcss",
 	"emmet_language_server",
 	"html",
@@ -27,6 +27,21 @@ vim.lsp.config("gopls", {
 				compositeLiteralTypes = true,
 				functionTypeParameters = true,
 			},
+		},
+	},
+})
+
+vim.lsp.config("expert", {
+	root_dir = function(bufnr, on_dir)
+		local fname = vim.api.nvim_buf_get_name(bufnr)
+		local matches = vim.fs.find({ "mix.exs" }, { upward = true, limit = 2, path = fname })
+		local child_or_root_path, maybe_umbrella_path = unpack(matches)
+		local root_dir = vim.fs.dirname(maybe_umbrella_path or child_or_root_path) or vim.fn.getcwd()
+		on_dir(root_dir)
+	end,
+	settings = {
+		workspaceSymbols = {
+			minQueryLength = 0,
 		},
 	},
 })
@@ -70,7 +85,7 @@ vim.lsp.config("ts_ls", {
 		vim.api.nvim_create_autocmd("BufWritePost", {
 			pattern = { "*.js", "*.ts" },
 			callback = function(ctx)
-				client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+				client:notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
 			end,
 		})
 	end,
@@ -104,7 +119,7 @@ vim.lsp.config("svelte", {
 		vim.api.nvim_create_autocmd("BufWritePost", {
 			pattern = { "*.js", "*.ts" },
 			callback = function(ctx)
-				client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+				client:notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
 			end,
 		})
 	end,

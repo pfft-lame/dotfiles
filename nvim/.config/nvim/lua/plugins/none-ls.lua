@@ -10,7 +10,7 @@ return {
 		local diagnostics = null_ls.builtins.diagnostics -- to setup linters
 
 		local sources = {
-			diagnostics.checkmake,
+			-- diagnostics.checkmake,
 			formatting.prettierd.with({
 				filetypes = {
 					"html",
@@ -60,7 +60,7 @@ return {
 			}),
 			require("none-ls.formatting.ruff").with({ extra_args = { "--extend-select", "I" } }),
 			require("none-ls.formatting.ruff_format"),
-			require("none-ls.diagnostics.ruff"),
+			-- require("none-ls.diagnostics.ruff"),
 		}
 
 		local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
