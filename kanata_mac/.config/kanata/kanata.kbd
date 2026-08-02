@@ -2,6 +2,7 @@
   process-unmapped-keys yes
   log-layer-changes no
   concurrent-tap-hold yes
+  macos-dev-names-include ("Gaming Keyboard")
 )
 
 (defsrc

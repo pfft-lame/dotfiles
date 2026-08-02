@@ -17,13 +17,13 @@ return {
 	opts = {
 		keymap = {
 			preset = "default",
-			["<C-space"] = { "fallback" },
+			["<C-Space>"] = { "show" },
 			["<C-s>"] = { "show", "show_documentation", "hide_documentation" },
 			["<Tab>"] = { "fallback" },
 			["<C-k>"] = { "snippet_forward" },
 			["<C-j>"] = { "snippet_backward" },
-			["C-n"] = { "select_next" },
-			["C-p"] = { "select_prev" },
+			["<C-n>"] = { "select_next" },
+			["<C-p>"] = { "select_prev" },
 		},
 
 		appearance = {
@@ -69,17 +69,17 @@ return {
 		fuzzy = {
 			implementation = "prefer_rust_with_warning",
 			sorts = {
-				"score", -- Primary sort: by fuzzy matching score
-				"sort_text", -- Secondary sort: by sortText field if scores are equal
-				"label", -- Tertiary sort: by label if still tied
+				"score",
+				"sort_text",
+				"label",
 			},
 		},
-	},
-	opts_extend = { "sources.default" },
-	signature = {
-		enabled = true,
-		window = {
-			border = "rounded",
+
+		signature = {
+			enabled = true,
+			window = {
+				border = "rounded",
+			},
 		},
 	},
 }
