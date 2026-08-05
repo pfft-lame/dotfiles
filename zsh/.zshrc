@@ -118,3 +118,4 @@ eval "$(zoxide init --cmd cd zsh)"
 # zprof
 
 export PATH="$HOME/.local/bin:$PATH"
+export PATH=/home/sharath/.opencode/bin:$PATH
