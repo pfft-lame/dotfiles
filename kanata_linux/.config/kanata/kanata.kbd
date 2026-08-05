@@ -1,11 +1,13 @@
 (defcfg
   process-unmapped-keys yes
+  log-layer-changes no
+  concurrent-tap-hold yes
 )
 
 (defsrc
   caps tab
-  ; '
-  lalt
+  ; ' q
+  lalt spc
 )
 
 (defvar
@@ -14,16 +16,18 @@
 )
 
 (defalias
-  caps-mod (tap-hold $tap-time $hold-time lctl lctl)
+  caps-mod (tap-hold 170 170 esc lctl)
   tab-mod (tap-hold $tap-time $hold-time tab lmet)
   ;-mod (tap-hold $tap-time $hold-time ; rmet)
   '-mod (tap-hold $tap-time $hold-time ' rctl)
+  q-mod (tap-hold $tap-time $hold-time q lmet)
   lalt-mod (tap-hold $tap-time $hold-time caps lalt)
+  spc-mod (tap-hold 300 300 spc lalt)
 )
 
 (deflayer base
   @caps-mod @tab-mod
-  @;-mod @'-mod
-  @lalt-mod
+  @;-mod @'-mod @q-mod
+  @lalt-mod @spc-mod
 )
 
