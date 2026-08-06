@@ -52,7 +52,7 @@ order = [ "default" ]
     shadow = true
     show_on_workspace_switch = true
     smart_auto_hide = false
-    start = [ "control-center", "wallpaper", "workspaces" ]
+    start = [ "control-center", "spacer_2", "workspaces" ]
     thickness = 34
     widget_spacing = 6
 
@@ -235,7 +235,7 @@ sunset = ""
 
 [lockscreen]
 allow_empty_password = false
-blur_intensity = 0.39999997615814209
+blur_intensity = 0.29999998211860657
 blurred_desktop = false
 enabled = true
 fingerprint = true
@@ -251,7 +251,8 @@ widget_order = [
     "lockscreen-login-box@HDMI-A-1",
     "lockscreen-login-box@eDP-1",
     "lockscreen-login-box@WAYLAND-1",
-    "lockscreen-widget-0000000000000001"
+    "lockscreen-widget-0000000000000001",
+    "lockscreen-widget-0000000000000002"
 ]
 
     [lockscreen_widgets.grid]
@@ -335,8 +336,8 @@ widget_order = [
         show_weather = true
 
     [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 229.0
-    box_width = 810.0
+    box_height = 103.0
+    box_width = 400.0
     cx = 683.0
     cy = 569.5
     enabled = true
@@ -351,7 +352,7 @@ widget_order = [
         center_password_text = false
         input_opacity = 1.0
         input_radius = 6.0
-        layout = "regular"
+        layout = "compact"
         show_caps_lock = true
         show_keyboard_layout = true
         show_login_button = true
@@ -373,6 +374,20 @@ widget_order = [
         background = false
         center_text = true
         clock_style = "digital"
+
+    [lockscreen_widgets.widget.lockscreen-widget-0000000000000002]
+    box_height = 144.0
+    box_width = 240.0
+    cx = 683.0
+    cy = 312.0
+    enabled = true
+    output = "eDP-1"
+    rotation = 0.0
+    type = "clock"
+
+        [lockscreen_widgets.widget.lockscreen-widget-0000000000000002.settings]
+        background = false
+        format = "{:%H:%M}"
 
 [nightlight]
 enabled = false
@@ -750,6 +765,10 @@ type = "sysmon"
 
 [widget.spacer]
 interactive = false
+type = "spacer"
+
+[widget.spacer_2]
+length = 12
 type = "spacer"
 
 [widget.temp]
