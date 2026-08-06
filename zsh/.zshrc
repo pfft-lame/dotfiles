@@ -72,6 +72,7 @@ bindkey '^B' backward-word
 bindkey '^W' forward-word
 bindkey '^p' history-search-backward # necessary
 bindkey '^n' history-search-forward # necessary
+bindkey '^[^?' backward-kill-word
 
 # Completion styling
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'

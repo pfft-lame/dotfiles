@@ -90,3 +90,8 @@ end)
 hl.bind(mainMod .. " + CTRL + SHIFT + S", function()
     hl.exec_cmd("hyprctl reload")
 end)
+
+hl.bind("ALT + SHIFT + S", hl.dsp.exec_cmd("noctalia msg screenshot-region"))
+hl.bind("ALT + SHIFT + F", function()
+    hl.exec_cmd("noctalia msg screenshot-fullscreen")
+end)
