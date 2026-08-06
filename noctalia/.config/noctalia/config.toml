@@ -37,7 +37,7 @@ order = [ "default" ]
     hover_highlight = true
     layer = "top"
     margin_edge = 0
-    margin_ends = 100
+    margin_ends = 0
     margin_opposite_edge = 0
     padding = 14
     panel_overlap = 1
@@ -59,7 +59,7 @@ order = [ "default" ]
         [bar.default.dead_zone]
 
 [battery]
-warning_threshold = 10
+warning_threshold = 15
 
 [brightness]
 enable_ddcutil = false
